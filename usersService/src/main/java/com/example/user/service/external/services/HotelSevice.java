@@ -1,0 +1,12 @@
+package com.example.user.service.external.services;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.example.user.service.entity.Hotel;
+@FeignClient(name="HOTEL-SERVICE")
+public interface HotelSevice {
+	@GetMapping("/hotel/{hotelId}")
+	Hotel gethotel(@PathVariable String hotelId);
+}
